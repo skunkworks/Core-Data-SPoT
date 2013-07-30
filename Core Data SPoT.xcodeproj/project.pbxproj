@@ -26,6 +26,9 @@
 		4A189D5417A782B5003F4E7C /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D5317A782B5003F4E7C /* ImageViewController.m */; };
 		4A189D5717A78334003F4E7C /* CoreDataSPoT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D5517A78334003F4E7C /* CoreDataSPoT.xcdatamodeld */; };
 		4A189D5917A79EEC003F4E7C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A189D5817A79EEC003F4E7C /* CoreData.framework */; };
+		4A189D8117A7A228003F4E7C /* Photographer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8017A7A228003F4E7C /* Photographer.m */; };
+		4A189D8417A7A228003F4E7C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8317A7A228003F4E7C /* Tag.m */; };
+		4A189D8717A7A228003F4E7C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8617A7A228003F4E7C /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,12 @@
 		4A189D5317A782B5003F4E7C /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		4A189D5617A78334003F4E7C /* CoreDataSPoT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataSPoT.xcdatamodel; sourceTree = "<group>"; };
 		4A189D5817A79EEC003F4E7C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4A189D7F17A7A228003F4E7C /* Photographer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photographer.h; sourceTree = "<group>"; };
+		4A189D8017A7A228003F4E7C /* Photographer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photographer.m; sourceTree = "<group>"; };
+		4A189D8217A7A228003F4E7C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		4A189D8317A7A228003F4E7C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		4A189D8517A7A228003F4E7C /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		4A189D8617A7A228003F4E7C /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +127,7 @@
 				4A189D4C17A7811F003F4E7C /* PhotoCache.m */,
 				4A189D4D17A7811F003F4E7C /* CachedPhoto.h */,
 				4A189D4E17A7811F003F4E7C /* CachedPhoto.m */,
+				4A189D8817A7A233003F4E7C /* Core Data Entities */,
 				4A189D4317A780D2003F4E7C /* FlickrFetcher */,
 				4A189D2217A77D7B003F4E7C /* Supporting Files */,
 			);
@@ -150,6 +160,19 @@
 				4A189D4617A780D2003F4E7C /* FlickrFetcher.m */,
 			);
 			path = FlickrFetcher;
+			sourceTree = "<group>";
+		};
+		4A189D8817A7A233003F4E7C /* Core Data Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4A189D8517A7A228003F4E7C /* Photo.h */,
+				4A189D8617A7A228003F4E7C /* Photo.m */,
+				4A189D8217A7A228003F4E7C /* Tag.h */,
+				4A189D8317A7A228003F4E7C /* Tag.m */,
+				4A189D7F17A7A228003F4E7C /* Photographer.h */,
+				4A189D8017A7A228003F4E7C /* Photographer.m */,
+			);
+			name = "Core Data Entities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +252,9 @@
 				4A189D5117A7811F003F4E7C /* CachedPhoto.m in Sources */,
 				4A189D5417A782B5003F4E7C /* ImageViewController.m in Sources */,
 				4A189D5717A78334003F4E7C /* CoreDataSPoT.xcdatamodeld in Sources */,
+				4A189D8117A7A228003F4E7C /* Photographer.m in Sources */,
+				4A189D8417A7A228003F4E7C /* Tag.m in Sources */,
+				4A189D8717A7A228003F4E7C /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
