@@ -7,6 +7,7 @@
 //
 
 #import "Photo+Flickr.h"
+#import "Tag+Create.h"
 
 @implementation Photo (Flickr)
 
@@ -15,7 +16,6 @@
 {
     Photo *photo = nil;
     
-    // Check to see if photo already exists
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     request.predicate = [NSPredicate predicateWithFormat:@"uniqueID = %@", [photoDictionary[FLICKR_PHOTO_ID] description]];
     
@@ -37,8 +37,15 @@
         photo.thumbnailURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatSquare] absoluteString];
         photo.lastViewed = [NSDate distantPast];
         photo.thumbnailPhoto = nil; // TODO
-        photo.tags = nil; // TODO
-        photo.whoTook = nil; // TODO
+        
+        // Flickr photo dictionary contains tags as an NSString. We need to turn each tag string into its equivalent (Tag *) type.
+        NSMutableSet *mutableTags = [[NSMutableSet alloc] init];
+        NSArray *tokenizedTags = [((NSString *)photoDictionary[FLICKR_TAGS]) componentsSeparatedByString:@" "];
+        for (NSString *tagText in tokenizedTags) {
+            Tag *tag = [Tag tagWithText:tagText inManagedObjectContext:context];
+            [mutableTags addObject:tag];
+        }
+        photo.tags = mutableTags;
     }
     
     return photo;

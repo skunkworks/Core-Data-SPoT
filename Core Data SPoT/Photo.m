@@ -7,7 +7,6 @@
 //
 
 #import "Photo.h"
-#import "Photographer.h"
 #import "Tag.h"
 
 
