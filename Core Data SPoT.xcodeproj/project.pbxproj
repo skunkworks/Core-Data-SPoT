@@ -30,6 +30,7 @@
 		4A189D8417A7A228003F4E7C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8317A7A228003F4E7C /* Tag.m */; };
 		4A189D8717A7A228003F4E7C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8617A7A228003F4E7C /* Photo.m */; };
 		4A189D8B17A82163003F4E7C /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8A17A82163003F4E7C /* Photo+Flickr.m */; };
+		4A189D9D17A8327E003F4E7C /* Photographer+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D9C17A8327E003F4E7C /* Photographer+Create.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		4A189D8617A7A228003F4E7C /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		4A189D8917A82163003F4E7C /* Photo+Flickr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Flickr.h"; sourceTree = "<group>"; };
 		4A189D8A17A82163003F4E7C /* Photo+Flickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Flickr.m"; sourceTree = "<group>"; };
+		4A189D9B17A8327E003F4E7C /* Photographer+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photographer+Create.h"; sourceTree = "<group>"; };
+		4A189D9C17A8327E003F4E7C /* Photographer+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photographer+Create.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				4A189D8317A7A228003F4E7C /* Tag.m */,
 				4A189D7F17A7A228003F4E7C /* Photographer.h */,
 				4A189D8017A7A228003F4E7C /* Photographer.m */,
+				4A189D9B17A8327E003F4E7C /* Photographer+Create.h */,
+				4A189D9C17A8327E003F4E7C /* Photographer+Create.m */,
 			);
 			name = "Core Data Entities";
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				4A189D8417A7A228003F4E7C /* Tag.m in Sources */,
 				4A189D8717A7A228003F4E7C /* Photo.m in Sources */,
 				4A189D8B17A82163003F4E7C /* Photo+Flickr.m in Sources */,
+				4A189D9D17A8327E003F4E7C /* Photographer+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

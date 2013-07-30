@@ -17,15 +17,16 @@
     
     // Check to see if photo already exists
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"uniqueID = %@", [photoDictionary[FLICKR_PHOTO_ID] description]];
     
     NSError *error;
     NSArray *results = [context executeFetchRequest:request error:&error];
     
     if (!results || [results count] > 1) {
-        // Error occurred
-    } else if (![results count]){
+        NSLog(@"Error searching for photo. Photo ID: %@ Error: %@", [photoDictionary[FLICKR_PHOTO_ID] description], error);
+    } else if ([results count] == 1) {
+        photo = results[0];
+    } else {
         photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo"
                                               inManagedObjectContext:context];
         photo.uniqueID = photoDictionary[FLICKR_PHOTO_ID];
@@ -38,8 +39,6 @@
         photo.thumbnailPhoto = nil; // TODO
         photo.tags = nil; // TODO
         photo.whoTook = nil; // TODO
-    } else {
-        photo = results[0];
     }
     
     return photo;
