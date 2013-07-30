@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Photo" syncable="YES">
+        <attribute name="contentDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastViewed" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="thumbnailPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="photos" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="whoTook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photographer" inverseName="photos" inverseEntity="Photographer" syncable="YES"/>
+    </entity>
+    <entity name="Photographer" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="whoTook" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <entity name="Tag" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="tags" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Photo" positionX="295" positionY="-135" width="128" height="178"/>
+        <element name="Photographer" positionX="160" positionY="192" width="128" height="73"/>
+        <element name="Tag" positionX="486" positionY="111" width="128" height="73"/>
+    </elements>
+</model>

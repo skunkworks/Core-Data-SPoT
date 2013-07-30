@@ -24,6 +24,7 @@
 		4A189D5017A7811F003F4E7C /* PhotoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4C17A7811F003F4E7C /* PhotoCache.m */; };
 		4A189D5117A7811F003F4E7C /* CachedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4E17A7811F003F4E7C /* CachedPhoto.m */; };
 		4A189D5417A782B5003F4E7C /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D5317A782B5003F4E7C /* ImageViewController.m */; };
+		4A189D5717A78334003F4E7C /* CoreDataSPoT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D5517A78334003F4E7C /* CoreDataSPoT.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		4A189D4E17A7811F003F4E7C /* CachedPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedPhoto.m; sourceTree = "<group>"; };
 		4A189D5217A782B5003F4E7C /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		4A189D5317A782B5003F4E7C /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		4A189D5617A78334003F4E7C /* CoreDataSPoT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataSPoT.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				4A189D3617A77D7B003F4E7C /* iPad.storyboard */,
 				4A189D4117A780D2003F4E7C /* CoreDataTableViewController.h */,
 				4A189D4217A780D2003F4E7C /* CoreDataTableViewController.m */,
+				4A189D5517A78334003F4E7C /* CoreDataSPoT.xcdatamodeld */,
 				4A189D5217A782B5003F4E7C /* ImageViewController.h */,
 				4A189D5317A782B5003F4E7C /* ImageViewController.m */,
 				4A189D4B17A7811F003F4E7C /* PhotoCache.h */,
@@ -221,6 +224,7 @@
 				4A189D5017A7811F003F4E7C /* PhotoCache.m in Sources */,
 				4A189D5117A7811F003F4E7C /* CachedPhoto.m in Sources */,
 				4A189D5417A782B5003F4E7C /* ImageViewController.m in Sources */,
+				4A189D5717A78334003F4E7C /* CoreDataSPoT.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +359,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4A189D5517A78334003F4E7C /* CoreDataSPoT.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4A189D5617A78334003F4E7C /* CoreDataSPoT.xcdatamodel */,
+			);
+			currentVersion = 4A189D5617A78334003F4E7C /* CoreDataSPoT.xcdatamodel */;
+			path = CoreDataSPoT.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A189D1017A77D7B003F4E7C /* Project object */;
 }
