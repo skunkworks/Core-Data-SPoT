@@ -18,6 +18,12 @@
 		4A189D3217A77D7B003F4E7C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A189D3117A77D7B003F4E7C /* Default-568h@2x.png */; };
 		4A189D3517A77D7B003F4E7C /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A189D3317A77D7B003F4E7C /* iPhone.storyboard */; };
 		4A189D3817A77D7B003F4E7C /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A189D3617A77D7B003F4E7C /* iPad.storyboard */; };
+		4A189D4717A780D2003F4E7C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4217A780D2003F4E7C /* CoreDataTableViewController.m */; };
+		4A189D4817A780D2003F4E7C /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4617A780D2003F4E7C /* FlickrFetcher.m */; };
+		4A189D4F17A7811F003F4E7C /* UIApplication+NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4A17A7811F003F4E7C /* UIApplication+NetworkActivity.m */; };
+		4A189D5017A7811F003F4E7C /* PhotoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4C17A7811F003F4E7C /* PhotoCache.m */; };
+		4A189D5117A7811F003F4E7C /* CachedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D4E17A7811F003F4E7C /* CachedPhoto.m */; };
+		4A189D5417A782B5003F4E7C /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D5317A782B5003F4E7C /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,19 @@
 		4A189D3117A77D7B003F4E7C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4A189D3417A77D7B003F4E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		4A189D3717A77D7B003F4E7C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
+		4A189D4117A780D2003F4E7C /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		4A189D4217A780D2003F4E7C /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		4A189D4417A780D2003F4E7C /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		4A189D4517A780D2003F4E7C /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		4A189D4617A780D2003F4E7C /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		4A189D4917A7811F003F4E7C /* UIApplication+NetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivity.h"; sourceTree = "<group>"; };
+		4A189D4A17A7811F003F4E7C /* UIApplication+NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivity.m"; sourceTree = "<group>"; };
+		4A189D4B17A7811F003F4E7C /* PhotoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCache.h; sourceTree = "<group>"; };
+		4A189D4C17A7811F003F4E7C /* PhotoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCache.m; sourceTree = "<group>"; };
+		4A189D4D17A7811F003F4E7C /* CachedPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedPhoto.h; sourceTree = "<group>"; };
+		4A189D4E17A7811F003F4E7C /* CachedPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedPhoto.m; sourceTree = "<group>"; };
+		4A189D5217A782B5003F4E7C /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		4A189D5317A782B5003F4E7C /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +103,15 @@
 			children = (
 				4A189D3317A77D7B003F4E7C /* iPhone.storyboard */,
 				4A189D3617A77D7B003F4E7C /* iPad.storyboard */,
+				4A189D4117A780D2003F4E7C /* CoreDataTableViewController.h */,
+				4A189D4217A780D2003F4E7C /* CoreDataTableViewController.m */,
+				4A189D5217A782B5003F4E7C /* ImageViewController.h */,
+				4A189D5317A782B5003F4E7C /* ImageViewController.m */,
+				4A189D4B17A7811F003F4E7C /* PhotoCache.h */,
+				4A189D4C17A7811F003F4E7C /* PhotoCache.m */,
+				4A189D4D17A7811F003F4E7C /* CachedPhoto.h */,
+				4A189D4E17A7811F003F4E7C /* CachedPhoto.m */,
+				4A189D4317A780D2003F4E7C /* FlickrFetcher */,
 				4A189D2217A77D7B003F4E7C /* Supporting Files */,
 			);
 			path = "Core Data SPoT";
@@ -92,6 +120,8 @@
 		4A189D2217A77D7B003F4E7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A189D4917A7811F003F4E7C /* UIApplication+NetworkActivity.h */,
+				4A189D4A17A7811F003F4E7C /* UIApplication+NetworkActivity.m */,
 				4A189D2A17A77D7B003F4E7C /* SPoTAppDelegate.h */,
 				4A189D2B17A77D7B003F4E7C /* SPoTAppDelegate.m */,
 				4A189D2317A77D7B003F4E7C /* Core Data SPoT-Info.plist */,
@@ -103,6 +133,16 @@
 				4A189D3117A77D7B003F4E7C /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A189D4317A780D2003F4E7C /* FlickrFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				4A189D4417A780D2003F4E7C /* FlickrAPIKey.h */,
+				4A189D4517A780D2003F4E7C /* FlickrFetcher.h */,
+				4A189D4617A780D2003F4E7C /* FlickrFetcher.m */,
+			);
+			path = FlickrFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +215,12 @@
 			files = (
 				4A189D2817A77D7B003F4E7C /* main.m in Sources */,
 				4A189D2C17A77D7B003F4E7C /* SPoTAppDelegate.m in Sources */,
+				4A189D4717A780D2003F4E7C /* CoreDataTableViewController.m in Sources */,
+				4A189D4817A780D2003F4E7C /* FlickrFetcher.m in Sources */,
+				4A189D4F17A7811F003F4E7C /* UIApplication+NetworkActivity.m in Sources */,
+				4A189D5017A7811F003F4E7C /* PhotoCache.m in Sources */,
+				4A189D5117A7811F003F4E7C /* CachedPhoto.m in Sources */,
+				4A189D5417A782B5003F4E7C /* ImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
