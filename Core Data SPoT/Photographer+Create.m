@@ -23,6 +23,7 @@
     
     if (!results || [results count] > 1) {
         // Log error
+        NSLog(@"Error searching for photographer. Photographer name: %@ Error: %@", name, error);
     } else if ([results count] == 1) {
         // Use existing photographer
         photographer = results[0];
