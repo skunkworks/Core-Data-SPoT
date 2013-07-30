@@ -30,6 +30,8 @@
 		4A189D8717A7A228003F4E7C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8617A7A228003F4E7C /* Photo.m */; };
 		4A189D8B17A82163003F4E7C /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D8A17A82163003F4E7C /* Photo+Flickr.m */; };
 		4A189DA017A835B4003F4E7C /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D9F17A835B4003F4E7C /* Tag+Create.m */; };
+		4A189DA317A83E6F003F4E7C /* TagsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */; };
+		4A189DA617A8555C003F4E7C /* StanfordPhotosByTagCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DA517A8555B003F4E7C /* StanfordPhotosByTagCDTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,10 @@
 		4A189D8A17A82163003F4E7C /* Photo+Flickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Flickr.m"; sourceTree = "<group>"; };
 		4A189D9E17A835B4003F4E7C /* Tag+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+Create.h"; sourceTree = "<group>"; };
 		4A189D9F17A835B4003F4E7C /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+Create.m"; sourceTree = "<group>"; };
+		4A189DA117A83E6E003F4E7C /* TagsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsCDTVC.h; sourceTree = "<group>"; };
+		4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsCDTVC.m; sourceTree = "<group>"; };
+		4A189DA417A8555B003F4E7C /* StanfordPhotosByTagCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordPhotosByTagCDTVC.h; sourceTree = "<group>"; };
+		4A189DA517A8555B003F4E7C /* StanfordPhotosByTagCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordPhotosByTagCDTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +128,12 @@
 				4A189D3317A77D7B003F4E7C /* iPhone.storyboard */,
 				4A189D3617A77D7B003F4E7C /* iPad.storyboard */,
 				4A189D4117A780D2003F4E7C /* CoreDataTableViewController.h */,
+				4A189DA417A8555B003F4E7C /* StanfordPhotosByTagCDTVC.h */,
+				4A189DA517A8555B003F4E7C /* StanfordPhotosByTagCDTVC.m */,
 				4A189D4217A780D2003F4E7C /* CoreDataTableViewController.m */,
 				4A189D5517A78334003F4E7C /* CoreDataSPoT.xcdatamodeld */,
+				4A189DA117A83E6E003F4E7C /* TagsCDTVC.h */,
+				4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */,
 				4A189D5217A782B5003F4E7C /* ImageViewController.h */,
 				4A189D5317A782B5003F4E7C /* ImageViewController.m */,
 				4A189D4B17A7811F003F4E7C /* PhotoCache.h */,
@@ -261,6 +271,8 @@
 				4A189D8717A7A228003F4E7C /* Photo.m in Sources */,
 				4A189D8B17A82163003F4E7C /* Photo+Flickr.m in Sources */,
 				4A189DA017A835B4003F4E7C /* Tag+Create.m in Sources */,
+				4A189DA317A83E6F003F4E7C /* TagsCDTVC.m in Sources */,
+				4A189DA617A8555C003F4E7C /* StanfordPhotosByTagCDTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
