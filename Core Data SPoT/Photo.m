@@ -14,12 +14,13 @@
 @implementation Photo
 
 @dynamic title;
-@dynamic contentDescription;
+@dynamic subtitle;
 @dynamic uniqueID;
 @dynamic thumbnailURL;
-@dynamic imageURL;
+@dynamic originalImageURL;
 @dynamic thumbnailPhoto;
 @dynamic lastViewed;
+@dynamic largeImageURL;
 @dynamic tags;
 @dynamic whoTook;
 

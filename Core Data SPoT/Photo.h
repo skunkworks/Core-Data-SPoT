@@ -14,12 +14,13 @@
 @interface Photo : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * contentDescription;
+@property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSString * uniqueID;
 @property (nonatomic, retain) NSString * thumbnailURL;
-@property (nonatomic, retain) NSString * imageURL;
+@property (nonatomic, retain) NSString * originalImageURL;
 @property (nonatomic, retain) NSData * thumbnailPhoto;
 @property (nonatomic, retain) NSDate * lastViewed;
+@property (nonatomic, retain) NSString * largeImageURL;
 @property (nonatomic, retain) NSSet *tags;
 @property (nonatomic, retain) Photographer *whoTook;
 @end
