@@ -32,6 +32,8 @@
 		4A189DA017A835B4003F4E7C /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189D9F17A835B4003F4E7C /* Tag+Create.m */; };
 		4A189DA317A83E6F003F4E7C /* TagsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */; };
 		4A189DA617A8555C003F4E7C /* StanfordTagsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DA517A8555B003F4E7C /* StanfordTagsCDTVC.m */; };
+		4A189DAF17A97EFF003F4E7C /* StanfordPhotosByTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DAE17A97EFE003F4E7C /* StanfordPhotosByTag.m */; };
+		4A189DB117A9A448003F4E7C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A189DB017A9A448003F4E7C /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,9 @@
 		4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsCDTVC.m; sourceTree = "<group>"; };
 		4A189DA417A8555B003F4E7C /* StanfordTagsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordTagsCDTVC.h; sourceTree = "<group>"; };
 		4A189DA517A8555B003F4E7C /* StanfordTagsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordTagsCDTVC.m; sourceTree = "<group>"; };
+		4A189DAD17A97EFE003F4E7C /* StanfordPhotosByTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordPhotosByTag.h; sourceTree = "<group>"; };
+		4A189DAE17A97EFE003F4E7C /* StanfordPhotosByTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordPhotosByTag.m; sourceTree = "<group>"; };
+		4A189DB017A9A448003F4E7C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +139,8 @@
 				4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */,
 				4A189DA417A8555B003F4E7C /* StanfordTagsCDTVC.h */,
 				4A189DA517A8555B003F4E7C /* StanfordTagsCDTVC.m */,
+				4A189DAD17A97EFE003F4E7C /* StanfordPhotosByTag.h */,
+				4A189DAE17A97EFE003F4E7C /* StanfordPhotosByTag.m */,
 				4A189D5217A782B5003F4E7C /* ImageViewController.h */,
 				4A189D5317A782B5003F4E7C /* ImageViewController.m */,
 				4A189D4B17A7811F003F4E7C /* PhotoCache.h */,
@@ -150,6 +157,7 @@
 		4A189D2217A77D7B003F4E7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A189DB017A9A448003F4E7C /* placeholder.png */,
 				4A189D4917A7811F003F4E7C /* UIApplication+NetworkActivity.h */,
 				4A189D4A17A7811F003F4E7C /* UIApplication+NetworkActivity.m */,
 				4A189D2A17A77D7B003F4E7C /* SPoTAppDelegate.h */,
@@ -248,6 +256,7 @@
 				4A189D3217A77D7B003F4E7C /* Default-568h@2x.png in Resources */,
 				4A189D3517A77D7B003F4E7C /* iPhone.storyboard in Resources */,
 				4A189D3817A77D7B003F4E7C /* iPad.storyboard in Resources */,
+				4A189DB117A9A448003F4E7C /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +282,7 @@
 				4A189DA017A835B4003F4E7C /* Tag+Create.m in Sources */,
 				4A189DA317A83E6F003F4E7C /* TagsCDTVC.m in Sources */,
 				4A189DA617A8555C003F4E7C /* StanfordTagsCDTVC.m in Sources */,
+				4A189DAF17A97EFF003F4E7C /* StanfordPhotosByTag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

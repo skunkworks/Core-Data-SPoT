@@ -13,7 +13,7 @@
 #import "Tag.h"
 
 @interface StanfordTagsCDTVC ()
-
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @end
 
 @implementation StanfordTagsCDTVC
@@ -31,7 +31,9 @@
     // Create/open the document before this VC goes on screen. We don't want this in viewDidLoad because we want to
     // wait until just before VC goes on screen, but because we can appear multiple times we have to check that we
     // haven't already loaded
-    if (!self.managedObjectContext) [self useDocument];
+    if (!self.managedObjectContext) {
+        [self useDocument];
+    }
 }
 
 // Open/create managed object document to get a managed object context for our Core Data database access
@@ -45,8 +47,14 @@
         // Create document
         [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
             if (success) self.managedObjectContext = document.managedObjectContext;
-            // TODO: Putting up an activity indicator overlay on the table view might be nice, since on first
-            // load there's no indication that a refresh is occurring because the UIRefreshControl is not visible
+
+            // Show spinner -- only relevant for first-run case, when Flickr data comes from network, not Core Data
+            self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            self.spinner.center = self.view.center;
+            self.spinner.hidesWhenStopped = YES;
+            [self.view addSubview:self.spinner];
+            [self.spinner startAnimating];
+            
             [self refresh];
         }];
     } else {
@@ -54,10 +62,12 @@
             // Open document if closed
             [document openWithCompletionHandler:^(BOOL success) {
                 if (success) self.managedObjectContext = document.managedObjectContext;
+                [self.spinner stopAnimating];
             }];
         } else {
             // Document is already open
             self.managedObjectContext = document.managedObjectContext;
+            [self.spinner stopAnimating];
         }
     }
 }
@@ -82,6 +92,7 @@
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.refreshControl endRefreshing];
+                [self.spinner stopAnimating];
             });
         }];
     });
@@ -92,13 +103,13 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
 
     if (indexPath) {
-        if ([[segue identifier] isEqualToString:@"Show Stanford Tagged Photos Detailed"]) {
-            if ([segue.destinationViewController respondsToSelector:@selector(setManagedObjectContext:)]) {
-                [segue.destinationViewController performSelector:@selector(setManagedObjectContext:)
-                                                      withObject:self.managedObjectContext];
-                // Don't forget to set title!
+        if ([[segue identifier] isEqualToString:@"Stanford Photos By Tag"]) {
+            if ([segue.destinationViewController respondsToSelector:@selector(setTag:)]) {
                 Tag *tag = (Tag *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-                NSString *title = [NSString stringWithFormat:@"%@ (%d photos)", tag.text, [tag.photos count]];
+                [segue.destinationViewController performSelector:@selector(setTag:)
+                                                      withObject:tag];
+                // Don't forget to set title!
+                NSString *title = [NSString stringWithFormat:@"%@ (%d photos)", [tag.text capitalizedString], [tag.photos count]];
                 [segue.destinationViewController performSelector:@selector(setTitle:) withObject:title];
             }
         }
