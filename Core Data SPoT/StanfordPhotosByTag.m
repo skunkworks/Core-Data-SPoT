@@ -8,6 +8,7 @@
 
 #import "StanfordPhotosByTag.h"
 #import "Photo.h"
+#import "UIApplication+NetworkActivity.h"
 
 @interface StanfordPhotosByTag ()
 // @property (strong, nonatomic) NSArray *photos;
@@ -75,7 +76,9 @@
     dispatch_queue_t thumbnailQ = dispatch_queue_create("Thumbnail queue", NULL);
     dispatch_async(thumbnailQ, ^{
         NSURL *thumbnailURL = [[NSURL alloc] initWithString:photo.thumbnailURL];
+        [[UIApplication sharedApplication] pushNetworkActivity];
         photo.thumbnailPhoto = [[NSData alloc] initWithContentsOfURL:thumbnailURL];
+        [[UIApplication sharedApplication] popNetworkActivity];
         UIImage *thumbnailImage = [[UIImage alloc] initWithData:photo.thumbnailPhoto];
         // When we've finished downloading thumbnail, display it in its cell
         dispatch_async(dispatch_get_main_queue(), ^{
