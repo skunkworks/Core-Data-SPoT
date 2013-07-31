@@ -49,7 +49,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iep-Sm-E3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="898" y="41"/>
+            <point key="canvasLocation" x="898" y="135"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="L9e-xD-pz6">
@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1776" y="-97"/>
         </scene>
-        <!--Stanford PhotosTVC - Photos By Tag-->
+        <!--Stanford Photos By TagCDTVC - Photos By Tag-->
         <scene sceneID="GID-EE-9Sg">
             <objects>
-                <tableViewController id="Xzi-lg-mn8" customClass="StanfordPhotosTVC" sceneMemberID="viewController">
+                <tableViewController id="Xzi-lg-mn8" customClass="StanfordPhotosByTagCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uri-M4-bko">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,15 +235,39 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGG-fw-usl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="41"/>
+            <point key="canvasLocation" x="498" y="135"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="StanfordPhotosByTagCDTVC" superclassName="TagsCDTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordPhotosByTagCDTVC.h"/>
+        </class>
+        <class className="TagsCDTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagsCDTVC.h"/>
+        </class>
+        <class className="UIRefreshControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OMn-Hw-dBv"/>
+        <segue reference="tqh-O6-JGP"/>
     </inferredMetricsTieBreakers>
 </document>

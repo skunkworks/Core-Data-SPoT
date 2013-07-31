@@ -44,7 +44,7 @@
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Tag"];
     
     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = tag.text;
+    cell.textLabel.text = [tag.text capitalizedString];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [tag.photos count]];
     
     return cell;
