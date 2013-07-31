@@ -106,10 +106,9 @@
         if ([[segue identifier] isEqualToString:@"Stanford Photos By Tag"]) {
             if ([segue.destinationViewController respondsToSelector:@selector(setTag:)]) {
                 Tag *tag = (Tag *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-                [segue.destinationViewController performSelector:@selector(setTag:)
-                                                      withObject:tag];
+                [segue.destinationViewController performSelector:@selector(setTag:) withObject:tag];
                 // Don't forget to set title!
-                NSString *title = [NSString stringWithFormat:@"%@ (%d photos)", [tag.text capitalizedString], [tag.photos count]];
+                NSString *title = [tag.text capitalizedString];
                 [segue.destinationViewController performSelector:@selector(setTitle:) withObject:title];
             }
         }

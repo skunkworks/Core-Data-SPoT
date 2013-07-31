@@ -11,7 +11,7 @@
 #import "UIApplication+NetworkActivity.h"
 
 @interface StanfordPhotosByTag ()
-// @property (strong, nonatomic) NSArray *photos;
+@property (nonatomic) BOOL useOriginalSizeImage;
 @end
 
 @implementation StanfordPhotosByTag
@@ -19,6 +19,11 @@
 - (void)setTag:(Tag *)tag {
     _tag = tag;
     [self setupFetchedResultsController];
+}
+
+- (BOOL)useOriginalSizeImage {
+    if (self.splitViewController) return YES;
+    return NO;
 }
 
 // Sets up the FRC with a query for photos with a matching tag
@@ -39,7 +44,17 @@
 // Displays image in image scroll view
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([segue.identifier isEqualToString:@"Show Stanford Tagged Photo"]) {
+        if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell: ((UITableViewCell *)sender)];
+            Photo *photo = (Photo *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+            
+            NSURL *imageURL = (self.useOriginalSizeImage) ?
+                              [[NSURL alloc] initWithString:photo.originalImageURL] :
+                              [[NSURL alloc] initWithString:photo.largeImageURL];
+            [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:imageURL];
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource methods

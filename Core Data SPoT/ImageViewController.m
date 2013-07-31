@@ -58,7 +58,6 @@
 
                 if (!image) {
                     [[UIApplication sharedApplication] pushNetworkActivity];
-                    [NSThread sleepForTimeInterval:2];
                     NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
                     [[UIApplication sharedApplication] popNetworkActivity];
                     image = [[UIImage alloc] initWithData:imageData];
