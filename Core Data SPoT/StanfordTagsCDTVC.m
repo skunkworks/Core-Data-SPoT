@@ -1,21 +1,22 @@
 //
-//  StanfordPhotosByTagCDTVC.m
+//  StanfordTagsCDTVC.m
 //  Core Data SPoT
 //
 //  Created by Richard Shin on 7/30/13.
 //  Copyright (c) 2013 Richard Shin. All rights reserved.
 //
 
-#import "StanfordPhotosByTagCDTVC.h"
+#import "StanfordTagsCDTVC.h"
 #import "FlickrFetcher.h"
 #import "Photo+Flickr.h"
 #import "UIApplication+NetworkActivity.h"
+#import "Tag.h"
 
-@interface StanfordPhotosByTagCDTVC ()
+@interface StanfordTagsCDTVC ()
 
 @end
 
-@implementation StanfordPhotosByTagCDTVC
+@implementation StanfordTagsCDTVC
 
 - (void)viewDidLoad
 {
@@ -84,6 +85,24 @@
             });
         }];
     });
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+
+    if (indexPath) {
+        if ([[segue identifier] isEqualToString:@"Show Stanford Tagged Photos Detailed"]) {
+            if ([segue.destinationViewController respondsToSelector:@selector(setManagedObjectContext:)]) {
+                [segue.destinationViewController performSelector:@selector(setManagedObjectContext:)
+                                                      withObject:self.managedObjectContext];
+                // Don't forget to set title!
+                Tag *tag = (Tag *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+                NSString *title = [NSString stringWithFormat:@"%@ (%d photos)", tag.text, [tag.photos count]];
+                [segue.destinationViewController performSelector:@selector(setTitle:) withObject:title];
+            }
+        }
+    }
 }
 
 @end

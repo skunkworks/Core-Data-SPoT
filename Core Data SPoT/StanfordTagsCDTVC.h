@@ -1,5 +1,5 @@
 //
-//  StanfordPhotosByTagCDTVC.h
+//  StanfordTagsCDTVC.h
 //  Core Data SPoT
 //
 //  Created by Richard Shin on 7/30/13.
@@ -8,6 +8,6 @@
 
 #import "TagsCDTVC.h"
 
-@interface StanfordPhotosByTagCDTVC : TagsCDTVC
+@interface StanfordTagsCDTVC : TagsCDTVC
 
 @end
