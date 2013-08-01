@@ -1,5 +1,5 @@
 //
-//  StanfordPhotosByTag.h
+//  StanfordPhotosByTagCDTVC.h
 //  Core Data SPoT
 //
 //  Created by Richard Shin on 7/31/13.
@@ -9,7 +9,7 @@
 #import "CoreDataTableViewController.h"
 #import "Tag.h"
 
-@interface StanfordPhotosByTag : CoreDataTableViewController
+@interface StanfordPhotosByTagCDTVC : CoreDataTableViewController
 
 @property (strong, nonatomic) Tag *tag;
 

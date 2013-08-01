@@ -11,7 +11,6 @@
 #import "ManagedDocumentHelper.h"
 
 @interface RecentPhotosCDTVC ()
-
 @property (readonly, nonatomic) BOOL useOriginalSizeImage;
 
 @end
@@ -103,6 +102,9 @@
     
     cell.textLabel.text = photo.title;
     cell.detailTextLabel.text = photo.subtitle;
+    // Unlike StanfordPhotosByTagCDTVC, we will never have to download a thumbnail because the image has already
+    // been viewed and has therefore had its thumbnail downloaded
+    cell.imageView.image = [[UIImage alloc] initWithData:photo.thumbnailPhoto];
     
     return cell;
 }

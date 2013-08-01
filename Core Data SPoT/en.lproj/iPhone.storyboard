@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="898" y="-526"/>
         </scene>
-        <!--Stanford Photos By Tag-->
+        <!--Stanford Photos By TagCDTVC-->
         <scene sceneID="ctW-I1-JHa">
             <objects>
-                <tableViewController id="YKo-H1-TmS" customClass="StanfordPhotosByTag" sceneMemberID="viewController">
+                <tableViewController id="YKo-H1-TmS" customClass="StanfordPhotosByTagCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vOY-zu-DFD">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,8 +255,8 @@
         <class className="RecentPhotosCDTVC" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosCDTVC.h"/>
         </class>
-        <class className="StanfordPhotosByTag" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordPhotosByTag.h"/>
+        <class className="StanfordPhotosByTagCDTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordPhotosByTagCDTVC.h"/>
         </class>
         <class className="StanfordTagsCDTVC" superclassName="TagsCDTVC">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordTagsCDTVC.h"/>
@@ -274,6 +274,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tqh-O6-JGP"/>
+        <segue reference="OMn-Hw-dBv"/>
     </inferredMetricsTieBreakers>
 </document>

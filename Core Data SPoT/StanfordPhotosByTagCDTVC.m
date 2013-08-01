@@ -1,20 +1,20 @@
 //
-//  StanfordPhotosByTag.m
+//  StanfordPhotosByTagCDTVC.m
 //  Core Data SPoT
 //
 //  Created by Richard Shin on 7/31/13.
 //  Copyright (c) 2013 Richard Shin. All rights reserved.
 //
 
-#import "StanfordPhotosByTag.h"
+#import "StanfordPhotosByTagCDTVC.h"
 #import "Photo.h"
 #import "UIApplication+NetworkActivity.h"
 
-@interface StanfordPhotosByTag ()
+@interface StanfordPhotosByTagCDTVC ()
 @property (readonly, nonatomic) BOOL useOriginalSizeImage;
 @end
 
-@implementation StanfordPhotosByTag
+@implementation StanfordPhotosByTagCDTVC
 
 - (void)setTag:(Tag *)tag {
     _tag = tag;
