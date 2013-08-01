@@ -36,7 +36,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="YNI-gC-DC1" kind="push" identifier="Show Recent Photo" id="tqh-O6-JGP"/>
+                                    <segue destination="YNI-gC-DC1" kind="push" identifier="Show Recently Viewed Photo" id="tqh-O6-JGP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

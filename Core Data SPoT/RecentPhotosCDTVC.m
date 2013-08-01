@@ -10,7 +10,18 @@
 #import "Photo.h"
 #import "ManagedDocumentHelper.h"
 
+@interface RecentPhotosCDTVC ()
+
+@property (readonly, nonatomic) BOOL useOriginalSizeImage;
+
+@end
+
 @implementation RecentPhotosCDTVC
+
+- (BOOL)useOriginalSizeImage {
+    if (self.splitViewController) return YES;
+    return NO;
+}
 
 #define MAX_RECENT_PHOTOS 5;
 
@@ -98,7 +109,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    if ([segue.identifier isEqualToString:@"Show Recently Viewed Photo"]) {
+        if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell: ((UITableViewCell *)sender)];
+            Photo *photo = (Photo *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+            [photo.managedObjectContext performBlock:^{
+                photo.lastViewed = [NSDate date];
+            }];
+            
+            NSURL *imageURL = (self.useOriginalSizeImage) ?
+            [[NSURL alloc] initWithString:photo.originalImageURL] :
+            [[NSURL alloc] initWithString:photo.largeImageURL];
+            [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:imageURL];
+        }
+    }
 }
 
 @end
