@@ -13,7 +13,7 @@
 #import "Tag.h"
 #import "ManagedDocumentHelper.h"
 
-@interface StanfordTagsCDTVC ()
+@interface StanfordTagsCDTVC () <UISplitViewControllerDelegate>
 @property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @end
 
@@ -27,6 +27,11 @@
         [self.view addSubview:self.spinner];
     }
     return _spinner;
+}
+
+- (void)awakeFromNib
+{
+    self.splitViewController.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -130,6 +135,13 @@
             }
         }
     }
+}
+
+#pragma mark - UISplitViewControllerDelegate methods
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc
+                                                                    inOrientation:(UIInterfaceOrientation)orientation
+{
+    return NO;
 }
 
 @end

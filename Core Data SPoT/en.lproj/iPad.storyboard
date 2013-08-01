@@ -4,16 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Stanford PhotosTVC - Photos By Tag-->
+        <!--Stanford TagsCDTVC - Photos By Tag-->
         <scene sceneID="NlS-lD-cbO">
             <objects>
-                <tableViewController id="UeC-cz-1gK" customClass="StanfordPhotosTVC" sceneMemberID="viewController">
+                <tableViewController id="UeC-cz-1gK" customClass="StanfordTagsCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5t5-Ue-abT">
                         <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Stanford Photos Grouped By Tag" textLabel="dru-F6-prj" detailTextLabel="Xy3-6j-ufI" style="IBUITableViewCellStyleSubtitle" id="5A1-FQ-DvT">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Tag" textLabel="dru-F6-prj" detailTextLabel="Xy3-6j-ufI" style="IBUITableViewCellStyleSubtitle" id="5A1-FQ-DvT">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -36,7 +36,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="nf5-Tt-Cbm" kind="push" identifier="Show Stanford Tagged Photos Detailed" id="DJH-lg-mOF"/>
+                                    <segue destination="nf5-Tt-Cbm" kind="push" identifier="Stanford Photos By Tag" id="DJH-lg-mOF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -133,16 +133,16 @@
             </objects>
             <point key="canvasLocation" x="862" y="-1178"/>
         </scene>
-        <!--Stanford Photos DetailedTVC-->
+        <!--Stanford Photos By TagCDTVC-->
         <scene sceneID="PGm-yX-LiP">
             <objects>
-                <tableViewController id="nf5-Tt-Cbm" customClass="StanfordPhotosDetailedTVC" sceneMemberID="viewController">
+                <tableViewController id="nf5-Tt-Cbm" customClass="StanfordPhotosByTagCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8Jt-KQ-Lf4">
                         <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Stanford Tagged Photo" textLabel="jpM-JR-qrL" detailTextLabel="GNm-m1-BVD" style="IBUITableViewCellStyleSubtitle" id="ilc-s8-xIH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Tagged Photo" textLabel="jpM-JR-qrL" detailTextLabel="GNm-m1-BVD" style="IBUITableViewCellStyleSubtitle" id="ilc-s8-xIH">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -181,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="1799" y="-1178"/>
         </scene>
-        <!--Recently Viewed PhotosTVC - Recently Viewed-->
+        <!--Recent PhotosCDTVC - Recently Viewed-->
         <scene sceneID="FK1-WY-Str">
             <objects>
-                <tableViewController id="CQ2-1Y-ZcC" customClass="RecentlyViewedPhotosTVC" sceneMemberID="viewController">
+                <tableViewController id="CQ2-1Y-ZcC" customClass="RecentPhotosCDTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ztm-Ib-Owc">
                         <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="YZg-Rp-KYP" kind="replace" identifier="Show Recent Photo" splitViewControllerTargetIndex="1" id="B5h-vP-84N"/>
+                                    <segue destination="YZg-Rp-KYP" kind="replace" identifier="Show Recently Viewed Photo" splitViewControllerTargetIndex="1" id="B5h-vP-84N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
