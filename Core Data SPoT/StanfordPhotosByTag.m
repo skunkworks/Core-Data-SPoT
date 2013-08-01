@@ -11,7 +11,7 @@
 #import "UIApplication+NetworkActivity.h"
 
 @interface StanfordPhotosByTag ()
-@property (nonatomic) BOOL useOriginalSizeImage;
+@property (readonly, nonatomic) BOOL useOriginalSizeImage;
 @end
 
 @implementation StanfordPhotosByTag
@@ -48,6 +48,7 @@
         if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell: ((UITableViewCell *)sender)];
             Photo *photo = (Photo *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+            photo.lastViewed = [NSDate date];
             
             NSURL *imageURL = (self.useOriginalSizeImage) ?
                               [[NSURL alloc] initWithString:photo.originalImageURL] :

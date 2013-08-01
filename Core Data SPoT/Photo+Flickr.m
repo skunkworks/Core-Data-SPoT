@@ -35,7 +35,7 @@
         photo.originalImageURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatOriginal] absoluteString];
         photo.largeImageURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatLarge] absoluteString];
         photo.thumbnailURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatSquare] absoluteString];
-        photo.lastViewed = [NSDate distantPast];
+        photo.lastViewed = nil;
         photo.thumbnailPhoto = nil; // TODO
         
         // Flickr photo dictionary contains tags as an NSString. We need to turn each tag string into its equivalent (Tag *) type.

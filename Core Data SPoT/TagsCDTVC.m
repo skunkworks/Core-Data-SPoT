@@ -41,22 +41,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // On first load the UIRefreshControl is not visible, so show placeholder cell to show that a refresh is occurring
-    if ([self.tableView numberOfRowsInSection:0] == 0 && indexPath.row == 0) {
-        UITableViewCell *placeholderCell = [tableView dequeueReusableCellWithIdentifier:@"PlaceholderCell"];
-        if (placeholderCell == nil)
-		{
-            placeholderCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                                     reuseIdentifier:@"PlaceholderCell"];
-			placeholderCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
-		placeholderCell.detailTextLabel.text = @"Loading…";
-        placeholderCell.detailTextLabel.textAlignment = NSTextAlignmentCenter;
-		
-		return placeholderCell;
-    }
-    
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Tag"];
     
     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
