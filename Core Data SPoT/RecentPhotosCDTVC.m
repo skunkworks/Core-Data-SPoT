@@ -8,6 +8,7 @@
 
 #import "RecentPhotosCDTVC.h"
 #import "Photo.h"
+#import "ManagedDocumentHelper.h"
 
 @implementation RecentPhotosCDTVC
 
@@ -51,7 +52,10 @@
     // wait until just before VC goes on screen, but because we can appear multiple times we have to check that we
     // haven't already loaded
     if (!self.managedObjectContext) {
-        [self useDocument];
+        [ManagedDocumentHelper managedObjectContextUsingBlock:^(NSManagedObjectContext *managedObjectContext) {
+            self.managedObjectContext = managedObjectContext;
+        }];
+        //        [self useDocument];
     }
 }
 

@@ -48,7 +48,9 @@
         if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell: ((UITableViewCell *)sender)];
             Photo *photo = (Photo *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-            photo.lastViewed = [NSDate date];
+            [photo.managedObjectContext performBlock:^{
+                photo.lastViewed = [NSDate date];
+            }];
             
             NSURL *imageURL = (self.useOriginalSizeImage) ?
                               [[NSURL alloc] initWithString:photo.originalImageURL] :
@@ -92,11 +94,13 @@
     dispatch_queue_t thumbnailQ = dispatch_queue_create("Thumbnail queue", NULL);
     dispatch_async(thumbnailQ, ^{
         NSURL *thumbnailURL = [[NSURL alloc] initWithString:photo.thumbnailURL];
+        
         [[UIApplication sharedApplication] pushNetworkActivity];
         photo.thumbnailPhoto = [[NSData alloc] initWithContentsOfURL:thumbnailURL];
         [[UIApplication sharedApplication] popNetworkActivity];
+        
+        // Finished downloading thumbnail, so display it in its cell
         UIImage *thumbnailImage = [[UIImage alloc] initWithData:photo.thumbnailPhoto];
-        // When we've finished downloading thumbnail, display it in its cell
         dispatch_async(dispatch_get_main_queue(), ^{
             [self displayThumbnail:thumbnailImage forIndexPath:indexPath];
         });

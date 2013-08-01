@@ -35,6 +35,7 @@
 		4A189DAF17A97EFF003F4E7C /* StanfordPhotosByTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DAE17A97EFE003F4E7C /* StanfordPhotosByTag.m */; };
 		4A189DB117A9A448003F4E7C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A189DB017A9A448003F4E7C /* placeholder.png */; };
 		4A189DB417A9BC9C003F4E7C /* RecentPhotosCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DB317A9BC9C003F4E7C /* RecentPhotosCDTVC.m */; };
+		4A189DBA17AA2F3E003F4E7C /* ManagedDocumentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A189DB917AA2F3E003F4E7C /* ManagedDocumentHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,8 @@
 		4A189DB017A9A448003F4E7C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		4A189DB217A9BC9B003F4E7C /* RecentPhotosCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosCDTVC.h; sourceTree = "<group>"; };
 		4A189DB317A9BC9C003F4E7C /* RecentPhotosCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosCDTVC.m; sourceTree = "<group>"; };
+		4A189DB817AA2F3E003F4E7C /* ManagedDocumentHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedDocumentHelper.h; sourceTree = "<group>"; };
+		4A189DB917AA2F3E003F4E7C /* ManagedDocumentHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedDocumentHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				4A189DA217A83E6E003F4E7C /* TagsCDTVC.m */,
 				4A189DA417A8555B003F4E7C /* StanfordTagsCDTVC.h */,
 				4A189DA517A8555B003F4E7C /* StanfordTagsCDTVC.m */,
+				4A189DB817AA2F3E003F4E7C /* ManagedDocumentHelper.h */,
+				4A189DB917AA2F3E003F4E7C /* ManagedDocumentHelper.m */,
 				4A189DAD17A97EFE003F4E7C /* StanfordPhotosByTag.h */,
 				4A189DAE17A97EFE003F4E7C /* StanfordPhotosByTag.m */,
 				4A189DB217A9BC9B003F4E7C /* RecentPhotosCDTVC.h */,
@@ -289,6 +294,7 @@
 				4A189DA617A8555C003F4E7C /* StanfordTagsCDTVC.m in Sources */,
 				4A189DAF17A97EFF003F4E7C /* StanfordPhotosByTag.m in Sources */,
 				4A189DB417A9BC9C003F4E7C /* RecentPhotosCDTVC.m in Sources */,
+				4A189DBA17AA2F3E003F4E7C /* ManagedDocumentHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

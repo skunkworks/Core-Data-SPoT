@@ -11,12 +11,23 @@
 #import "Photo+Flickr.h"
 #import "UIApplication+NetworkActivity.h"
 #import "Tag.h"
+#import "ManagedDocumentHelper.h"
 
 @interface StanfordTagsCDTVC ()
 @property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @end
 
 @implementation StanfordTagsCDTVC
+
+- (UIActivityIndicatorView *)spinner {
+    if (!_spinner) {
+        _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _spinner.center = self.view.center;
+        _spinner.hidesWhenStopped = YES;
+        [self.view addSubview:self.spinner];
+    }
+    return _spinner;
+}
 
 - (void)viewDidLoad
 {
@@ -32,29 +43,32 @@
     // wait until just before VC goes on screen, but because we can appear multiple times we have to check that we
     // haven't already loaded
     if (!self.managedObjectContext) {
-        [self useDocument];
+        //[self useDocument];
+        [ManagedDocumentHelper managedObjectContextUsingBlock:^(NSManagedObjectContext *managedObjectContext) {
+            // Setting managedObjectContext also sets up our FRC
+            self.managedObjectContext = managedObjectContext;
+            
+            // Force a refresh if there are 0 items in database
+            if (![self.fetchedResultsController.fetchedObjects count]) {
+                [self.spinner startAnimating];
+                [self refresh];
+            }
+        }];
     }
 }
 
 // Open/create managed object document to get a managed object context for our Core Data database access
 - (void)useDocument
 {
-    NSURL *url = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-    url = [url URLByAppendingPathComponent:@"SPoT Core Data Document"];
-
-    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
+    UIManagedDocument *document = [ManagedDocumentHelper sharedDocument];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[document.fileURL path]]) {
         // Create document
-        [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+        [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
             if (success) self.managedObjectContext = document.managedObjectContext;
 
-            // Show spinner -- only relevant for first-run case, when Flickr data comes from network, not Core Data
-            self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            self.spinner.center = self.view.center;
-            self.spinner.hidesWhenStopped = YES;
-            [self.view addSubview:self.spinner];
+            // Show spinner when refreshing Flickr data. Only really necessary for first-run case (i.e. when first creating Core Data database
+            // that must be populated by querying Flickr over the network)
             [self.spinner startAnimating];
-            
             [self refresh];
         }];
     } else {
@@ -62,12 +76,10 @@
             // Open document if closed
             [document openWithCompletionHandler:^(BOOL success) {
                 if (success) self.managedObjectContext = document.managedObjectContext;
-                [self.spinner stopAnimating];
             }];
         } else {
             // Document is already open
             self.managedObjectContext = document.managedObjectContext;
-            [self.spinner stopAnimating];
         }
     }
 }
@@ -75,6 +87,7 @@
 // Refreshes data from Flickr. Used by refreshControl and also when we first create our database in useDocument
 - (IBAction)refresh
 {
+    // Display refreshing animation if this refresh was initiated by refreshControl
     [self.refreshControl beginRefreshing];
     
     // Fetch photos on another thread
@@ -90,6 +103,10 @@
                 // This method takes care of inserting new objects (and not inserting any that we already have)
                 [Photo photoWithFlickrInfo:photoDictionary inManagedObjectContext:self.managedObjectContext];
             }
+            
+            // Force a save to the database. Helps get rid of pesky non-saves when stopping in XCode.
+            [[ManagedDocumentHelper sharedDocument] saveToURL:[ManagedDocumentHelper sharedDocument].fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.refreshControl endRefreshing];
                 [self.spinner stopAnimating];
@@ -106,9 +123,9 @@
         if ([[segue identifier] isEqualToString:@"Stanford Photos By Tag"]) {
             if ([segue.destinationViewController respondsToSelector:@selector(setTag:)]) {
                 Tag *tag = (Tag *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-                [segue.destinationViewController performSelector:@selector(setTag:) withObject:tag];
-                // Don't forget to set title!
                 NSString *title = [tag.text capitalizedString];
+                
+                [segue.destinationViewController performSelector:@selector(setTag:) withObject:tag];
                 [segue.destinationViewController performSelector:@selector(setTitle:) withObject:title];
             }
         }
