@@ -44,11 +44,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     // Create/open the document before this VC goes on screen. We don't want this in viewDidLoad because we want to
     // wait until just before VC goes on screen, but because we can appear multiple times we have to check that we
     // haven't already loaded
     if (!self.managedObjectContext) {
-        //[self useDocument];
         [ManagedDocumentHelper managedObjectContextUsingBlock:^(NSManagedObjectContext *managedObjectContext) {
             // Setting managedObjectContext also sets up our FRC
             self.managedObjectContext = managedObjectContext;
@@ -59,33 +59,6 @@
                 [self refresh];
             }
         }];
-    }
-}
-
-// Open/create managed object document to get a managed object context for our Core Data database access
-- (void)useDocument
-{
-    UIManagedDocument *document = [ManagedDocumentHelper sharedDocument];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[document.fileURL path]]) {
-        // Create document
-        [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-            if (success) self.managedObjectContext = document.managedObjectContext;
-
-            // Show spinner when refreshing Flickr data. Only really necessary for first-run case (i.e. when first creating Core Data database
-            // that must be populated by querying Flickr over the network)
-            [self.spinner startAnimating];
-            [self refresh];
-        }];
-    } else {
-        if (document.documentState == UIDocumentStateClosed) {
-            // Open document if closed
-            [document openWithCompletionHandler:^(BOOL success) {
-                if (success) self.managedObjectContext = document.managedObjectContext;
-            }];
-        } else {
-            // Document is already open
-            self.managedObjectContext = document.managedObjectContext;
-        }
     }
 }
 
