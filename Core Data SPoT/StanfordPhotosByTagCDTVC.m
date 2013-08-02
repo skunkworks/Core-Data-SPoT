@@ -47,6 +47,7 @@
     if ([segue.identifier isEqualToString:@"Show Stanford Tagged Photo"]) {
         if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell: ((UITableViewCell *)sender)];
+
             Photo *photo = (Photo *)[self.fetchedResultsController objectAtIndexPath:indexPath];
             [photo.managedObjectContext performBlock:^{
                 photo.lastViewed = [NSDate date];
@@ -95,9 +96,15 @@
     dispatch_async(thumbnailQ, ^{
         NSURL *thumbnailURL = [[NSURL alloc] initWithString:photo.thumbnailURL];
         
+        // Fetch the thumbnail data
         [[UIApplication sharedApplication] pushNetworkActivity];
-        photo.thumbnailPhoto = [[NSData alloc] initWithContentsOfURL:thumbnailURL];
+        NSData *photoData = [[NSData alloc] initWithContentsOfURL:thumbnailURL];
         [[UIApplication sharedApplication] popNetworkActivity];
+        
+        // Put thumbnail data into Core Data database. Use performBlock because we are not on the managed object context thread
+        [photo.managedObjectContext performBlock:^{
+            photo.thumbnailPhoto = photoData;
+        }];
         
         // Finished downloading thumbnail, so display it in its cell
         UIImage *thumbnailImage = [[UIImage alloc] initWithData:photo.thumbnailPhoto];
