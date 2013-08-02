@@ -26,6 +26,8 @@
         NSLog(@"Error searching for photo. Photo ID: %@ Error: %@", [photoDictionary[FLICKR_PHOTO_ID] description], error);
     } else if ([results count] == 1) {
         photo = results[0];
+        
+        // TODO: we could update photo here in case the Flickr data has changes not reflected in the photo managed object
     } else {
         photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo"
                                               inManagedObjectContext:context];
@@ -36,7 +38,7 @@
         photo.largeImageURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatLarge] absoluteString];
         photo.thumbnailURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatSquare] absoluteString];
         photo.lastViewed = nil;
-        photo.thumbnailPhoto = nil; // TODO
+        photo.thumbnailPhoto = nil;
         
         // Flickr photo dictionary contains tags as an NSString. We need to turn each tag string into its equivalent (Tag *) type.
         NSMutableSet *mutableTags = [[NSMutableSet alloc] init];

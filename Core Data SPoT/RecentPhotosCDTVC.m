@@ -115,6 +115,7 @@
         if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell: ((UITableViewCell *)sender)];
             Photo *photo = (Photo *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+            // Unsure if this performBlock is necessary
             [photo.managedObjectContext performBlock:^{
                 photo.lastViewed = [NSDate date];
             }];
