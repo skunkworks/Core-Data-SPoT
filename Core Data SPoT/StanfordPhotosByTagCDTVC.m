@@ -107,7 +107,7 @@
         }];
         
         // Finished downloading thumbnail, so display it in its cell
-        UIImage *thumbnailImage = [[UIImage alloc] initWithData:photo.thumbnailPhoto];
+        UIImage *thumbnailImage = [[UIImage alloc] initWithData:photoData];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self displayThumbnail:thumbnailImage forIndexPath:indexPath];
         });
